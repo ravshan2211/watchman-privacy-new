@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="uz">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>WATCHMAN Maxfiylik Siyosati</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+  /* Layout: bitta o'qiladigan ustun (~68ch), yuqorida ilova nomi va sana, ikki til bo'limi. */
+  :root {
+    --bg: #f5f6f4;
+    --surface: #ffffff;
+    --fg: #1b2330;
+    --muted: #586273;
+    --line: #d7dcd6;
+    --accent: #0e6b59;
+    --accent-soft: #e2efeb;
+    --font-body: "Onest", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    --font-mono: "JetBrains Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161c; --surface: #181d25; --fg: #e5e9ee; --muted: #9aa4b3;
+      --line: #2a313b; --accent: #52c4a8; --accent-soft: #19302b; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161c; --surface: #181d25; --fg: #e5e9ee; --muted: #9aa4b3;
+    --line: #2a313b; --accent: #52c4a8; --accent-soft: #19302b; color-scheme: dark;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    margin: 0;
+  }
+  .page {
+    max-width: 44rem;
+    margin: 0 auto;
+    padding-inline: 20px;
+    padding-block: 40px 64px;
+  }
+  header.top {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .app {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  h1 {
+    font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+    line-height: 1.2;
+    margin: 0;
+    text-wrap: balance;
+  }
+  .meta {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+  }
+  nav.lang {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 6px;
+  }
+  nav.lang a {
+    font-size: 0.9rem;
+    text-decoration: none;
+    color: var(--fg);
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 4px 14px;
+    background: var(--surface);
+  }
+  nav.lang a:hover, nav.lang a:focus-visible {
+    border-color: var(--accent);
+    color: var(--accent);
+    outline: none;
+  }
+  section.lang-block {
+    padding-top: 32px;
+  }
+  section.lang-block + section.lang-block {
+    margin-top: 40px;
+    border-top: 1px solid var(--line);
+  }
+  h2 {
+    font-size: 1.15rem;
+    margin: 32px 0 8px;
+    text-wrap: balance;
+  }
+  h2:first-of-type { margin-top: 8px; }
+  p, li { max-width: 68ch; }
+  p { margin: 0 0 12px; }
+  ul { margin: 0 0 12px; padding-left: 1.2em; }
+  li { margin-bottom: 4px; }
+  .lead {
+    color: var(--muted);
+  }
+  .table-wrap {
+    overflow-x: auto;
+    margin: 12px 0 16px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    background: var(--surface);
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 34rem;
+    font-size: 0.92rem;
+  }
+  th, td {
+    text-align: left;
+    vertical-align: top;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--line);
+  }
+  tr:last-child td { border-bottom: none; }
+  th {
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: var(--accent-soft);
+  }
+  code, .mono {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+  }
+  .contact {
+    display: inline-block;
+    font-family: var(--font-mono);
+    background: var(--accent-soft);
+    color: var(--fg);
+    padding: 2px 8px;
+    border-radius: 4px;
+    user-select: all;
+    word-break: break-all;
+  }
+  footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--line);
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    html { scroll-behavior: smooth; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="top">
+    <div class="app">WATCHMAN · Android</div>
+    <h1>Maxfiylik siyosati / Политика конфиденциальности</h1>
+    <div class="meta">Kuchga kirgan sana / Дата вступления в силу: 2026-09-30</div>
+    <nav class="lang" aria-label="Til / Язык">
+      <a href="#uz">O'zbekcha</a>
+      <a href="#ru">Русский</a>
+    </nav>
+  </header>
+
+  <section class="lang-block" id="uz" lang="uz">
+    <p class="lead">Ushbu siyosat WATCHMAN ilovasi (paket: <span class="mono">uz.ravshan2211.watchman</span>) va unga ulangan avtomobil qurilmasi qaysi ma'lumotlarni yig'ishi, ular nima uchun ishlatilishi, qayerda saqlanishi va ularni qanday o'chirish mumkinligini tushuntiradi.</p>
+
+    <h2>1. Ilova nima qiladi</h2>
+    <p>WATCHMAN avtomobilga o'rnatilgan qurilma orqali mashinani masofadan boshqarish uchun ishlatiladi: eshiklarni qulflash va ochish, dvigatelni masofadan yoqish, qo'riqlash rejimi va ogohlantirishlar. Telefon va qurilma bir-biri bilan ilova serveri orqali bog'lanadi.</p>
+
+    <h2>2. Qanday ma'lumotlar yig'iladi</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Ma'lumot</th><th>Nima uchun</th><th>Qayerda saqlanadi</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Login va parol</td>
+            <td>Hisobga kirish</td>
+            <td>Serverda parol faqat shifrlangan (bcrypt xesh) ko'rinishda saqlanadi. Telefonda qayta ulanish uchun saqlanadi.</td>
+          </tr>
+          <tr>
+            <td>ID (asosiy parol)</td>
+            <td>Buyruqlarni bajarishga ruxsat berish uchun ikkinchi himoya bosqichi</td>
+            <td>Serverda shifrlangan (bcrypt xesh) ko'rinishda. Avtomobil qurilmasida va telefonda qayta ulanish uchun saqlanadi.</td>
+          </tr>
+          <tr>
+            <td>Qurilma egasining ismi (ixtiyoriy)</td>
+            <td>Hisobni ro'yxatdan o'tkazishda qurilmani ajratib olish</td>
+            <td>Serverda</td>
+          </tr>
+          <tr>
+            <td>Telefon identifikatori (Android ID)</td>
+            <td>Kirish paytida serverga yuboriladi</td>
+            <td>Serverda saqlanmaydi</td>
+          </tr>
+          <tr>
+            <td>Avtomobil holati: eshik, bagaj, qo'riqlash, dvigatel, uzatma, dvigatel harorati, akkumulyator kuchlanishi, burilish chiroqlari</td>
+            <td>Ilovada mashina holatini ko'rsatish</td>
+            <td>Real vaqtda server orqali uzatiladi va saqlanmaydi. Server faqat eshik va dvigatel holati o'zgarishlarini voqealar tarixi uchun yozib boradi.</td>
+          </tr>
+          <tr>
+            <td>Voqealar tarixi: yuborilgan buyruqlar (qulflash, ochish, zavod va boshqalar) va ogohlantirishlar, vaqti bilan</td>
+            <td>Ilovadagi "Tarix" bo'limi</td>
+            <td>Serverda, har bir hisob uchun oxirgi 300 ta yozuv. Eskilari avtomatik o'chiriladi.</td>
+          </tr>
+          <tr>
+            <td>Yetkazilmagan ogohlantirishlar</td>
+            <td>Telefon oflayn bo'lganda keyinroq yetkazish</td>
+            <td>Serverda, ko'pi bilan 24 soat va 20 ta xabar</td>
+          </tr>
+          <tr>
+            <td>Avtomobil qurilmasining WiFi nomi va paroli (faqat siz ilovada o'zgartirsangiz)</td>
+            <td>Qurilmani internetga ulash</td>
+            <td>Faqat avtomobil qurilmasida. Server uni faqat uzatadi va saqlamaydi.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>3. Nimalar yig'ilmaydi</h2>
+    <ul>
+      <li>Joylashuv (GPS), kontaktlar, fotosuratlar, fayllar va SMS.</li>
+      <li>Barmoq izi: u faqat telefonning o'zida, Android tizimi tomonidan tekshiriladi. Ilova va server uni ko'rmaydi.</li>
+      <li>Ilovada reklama, analitika va kuzatuv (tracking) xizmatlari yo'q.</li>
+    </ul>
+
+    <h2>4. Ma'lumotlar qanday himoyalanadi</h2>
+    <ul>
+      <li>Telefon, server va avtomobil qurilmasi o'rtasidagi aloqa TLS (<span class="mono">wss://</span>) orqali shifrlanadi.</li>
+      <li>Serverda parollar va ID faqat bcrypt xesh ko'rinishida saqlanadi. Server jurnallarida (log) parollar, ID va WiFi paroli yashiriladi.</li>
+      <li>Noto'g'ri parol ko'p marta kiritilsa, hisobga kirish vaqtincha bloklanadi.</li>
+    </ul>
+
+    <h2>5. Ma'lumotlarni boshqalarga berish</h2>
+    <p>Ma'lumotlar sotilmaydi va reklama uchun uzatilmaydi. Server Render (render.com) xosting xizmatida ishlaydi. U ma'lumotlarni faqat serverni ishlatish uchun saqlaydi. Qonun talab qilgan hollardan tashqari ma'lumotlar uchinchi shaxslarga berilmaydi.</p>
+
+    <h2>6. Ruxsatlar</h2>
+    <ul>
+      <li><strong>Internet va tarmoq holati</strong>: server bilan aloqa uchun.</li>
+      <li><strong>Bildirishnomalar</strong>: signalizatsiya ogohlantirishlarini ko'rsatish uchun.</li>
+      <li><strong>Fon xizmati va telefon yoqilganda ishga tushish</strong>: ilova yopiq bo'lsa ham ogohlantirishlarni olib turish uchun.</li>
+      <li><strong>Batareyani tejash cheklovidan chiqarish</strong>: telefon ogohlantirishlarni kechiktirmasligi uchun.</li>
+      <li><strong>Barmoq izi</strong>: ilovaga kirishni himoyalash uchun (ixtiyoriy).</li>
+      <li><strong>Tebranish</strong>: ogohlantirish signali uchun.</li>
+    </ul>
+
+    <h2>7. Ma'lumotlar qancha saqlanadi va qanday o'chiriladi</h2>
+    <p>Hisob ma'lumotlari hisob mavjud ekan saqlanadi. Voqealar tarixi har bir hisob uchun oxirgi 300 ta yozuv bilan cheklangan. Hisobingizni va unga tegishli barcha ma'lumotlarni o'chirish uchun quyidagi manzilga yozing. So'rov 30 kun ichida bajariladi.</p>
+    <p><span class="contact">aslida.noshqacha@gmail.com</span></p>
+    <p>Telefondagi ma'lumotlar ilova telefondan o'chirilganda o'chadi.</p>
+
+    <h2>8. Bolalar</h2>
+    <p>Ilova avtomobil egalari uchun mo'ljallangan va 18 yoshdan kichiklar uchun emas. Biz bolalar haqida ongli ravishda ma'lumot yig'maymiz.</p>
+
+    <h2>9. O'zgarishlar</h2>
+    <p>Siyosat o'zgarsa, yangi matn shu sahifada e'lon qilinadi va yuqoridagi sana yangilanadi.</p>
+
+    <h2>10. Bog'lanish</h2>
+    <p>Savollar va so'rovlar uchun: <span class="contact">aslida.noshqacha@gmail.com</span></p>
+  </section>
+
+  <section class="lang-block" id="ru" lang="ru">
+    <p class="lead">Эта политика объясняет, какие данные собирают приложение WATCHMAN (пакет: <span class="mono">uz.ravshan2211.watchman</span>) и подключённое к нему автомобильное устройство, для чего они используются, где хранятся и как их удалить.</p>
+
+    <h2>1. Что делает приложение</h2>
+    <p>WATCHMAN используется для удалённого управления автомобилем через установленное в нём устройство: закрытие и открытие дверей, дистанционный запуск двигателя, режим охраны и оповещения. Телефон и устройство связываются друг с другом через сервер приложения.</p>
+
+    <h2>2. Какие данные собираются</h2>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Данные</th><th>Для чего</th><th>Где хранятся</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Логин и пароль</td>
+            <td>Вход в учётную запись</td>
+            <td>На сервере пароль хранится только в зашифрованном виде (хеш bcrypt). На телефоне хранится для повторного подключения.</td>
+          </tr>
+          <tr>
+            <td>ID (основной пароль)</td>
+            <td>Второй уровень защиты для разрешения команд</td>
+            <td>На сервере в зашифрованном виде (хеш bcrypt). В автомобильном устройстве и на телефоне для повторного подключения.</td>
+          </tr>
+          <tr>
+            <td>Имя владельца устройства (необязательно)</td>
+            <td>Чтобы отличать устройство при регистрации учётной записи</td>
+            <td>На сервере</td>
+          </tr>
+          <tr>
+            <td>Идентификатор телефона (Android ID)</td>
+            <td>Передаётся на сервер при входе</td>
+            <td>На сервере не хранится</td>
+          </tr>
+          <tr>
+            <td>Состояние автомобиля: двери, багажник, охрана, двигатель, передача, температура двигателя, напряжение аккумулятора, указатели поворота</td>
+            <td>Отображение состояния автомобиля в приложении</td>
+            <td>Передаётся через сервер в реальном времени и не хранится. Сервер записывает только изменения состояния дверей и двигателя для истории событий.</td>
+          </tr>
+          <tr>
+            <td>История событий: отправленные команды (закрытие, открытие, запуск и т.д.) и оповещения со временем</td>
+            <td>Раздел «История» в приложении</td>
+            <td>На сервере, последние 300 записей на учётную запись. Старые удаляются автоматически.</td>
+          </tr>
+          <tr>
+            <td>Недоставленные оповещения</td>
+            <td>Доставка позже, если телефон был офлайн</td>
+            <td>На сервере, не более 24 часов и 20 сообщений</td>
+          </tr>
+          <tr>
+            <td>Имя и пароль WiFi автомобильного устройства (только если вы меняете их в приложении)</td>
+            <td>Подключение устройства к интернету</td>
+            <td>Только в автомобильном устройстве. Сервер только передаёт их и не хранит.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h2>3. Что не собирается</h2>
+    <ul>
+      <li>Местоположение (GPS), контакты, фотографии, файлы и SMS.</li>
+      <li>Отпечаток пальца: он проверяется только на самом телефоне системой Android. Приложение и сервер его не видят.</li>
+      <li>В приложении нет рекламы, аналитики и сервисов отслеживания.</li>
+    </ul>
+
+    <h2>4. Как защищены данные</h2>
+    <ul>
+      <li>Связь между телефоном, сервером и автомобильным устройством шифруется по TLS (<span class="mono">wss://</span>).</li>
+      <li>На сервере пароли и ID хранятся только в виде хеша bcrypt. В журналах сервера пароли, ID и пароль WiFi скрываются.</li>
+      <li>При многократном вводе неверного пароля вход временно блокируется.</li>
+    </ul>
+
+    <h2>5. Передача данных третьим лицам</h2>
+    <p>Данные не продаются и не передаются для рекламы. Сервер работает на хостинге Render (render.com), который хранит данные только для работы сервера. Кроме случаев, предусмотренных законом, данные третьим лицам не передаются.</p>
+
+    <h2>6. Разрешения</h2>
+    <ul>
+      <li><strong>Интернет и состояние сети</strong>: для связи с сервером.</li>
+      <li><strong>Уведомления</strong>: для показа оповещений охраны.</li>
+      <li><strong>Фоновая служба и запуск при включении телефона</strong>: чтобы получать оповещения, даже когда приложение закрыто.</li>
+      <li><strong>Исключение из оптимизации батареи</strong>: чтобы телефон не задерживал оповещения.</li>
+      <li><strong>Отпечаток пальца</strong>: для защиты входа в приложение (необязательно).</li>
+      <li><strong>Вибрация</strong>: для сигнала оповещения.</li>
+    </ul>
+
+    <h2>7. Срок хранения и удаление данных</h2>
+    <p>Данные учётной записи хранятся, пока существует учётная запись. История событий ограничена последними 300 записями на учётную запись. Чтобы удалить учётную запись и все связанные с ней данные, напишите на адрес ниже. Запрос выполняется в течение 30 дней.</p>
+    <p><span class="contact">aslida.noshqacha@gmail.com</span></p>
+    <p>Данные на телефоне удаляются при удалении приложения с телефона.</p>
+
+    <h2>8. Дети</h2>
+    <p>Приложение предназначено для владельцев автомобилей и не предназначено для лиц младше 18 лет. Мы сознательно не собираем данные о детях.</p>
+
+    <h2>9. Изменения</h2>
+    <p>При изменении политики новый текст публикуется на этой странице, а дата вверху обновляется.</p>
+
+    <h2>10. Контакты</h2>
+    <p>Вопросы и запросы: <span class="contact">aslida.noshqacha@gmail.com</span></p>
+  </section>
+
+  <footer>WATCHMAN · uz.ravshan2211.watchman · 2026-09-30</footer>
+</div>
+</body>
+</html>
